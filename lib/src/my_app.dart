@@ -1,18 +1,59 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:newcustomerapp/src/core/constants/keys.dart';
+import 'package:newcustomerapp/src/core/theme/theme.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+import 'core/config/routes.dart';
 
-  // This widget is the root of your application.
+class NewCustomerApp extends StatefulWidget {
+  final Box<dynamic> settings;
+  const NewCustomerApp({super.key, required this.settings});
+
+  @override
+  State<NewCustomerApp> createState() => _NewCustomerAppState();
+}
+
+class _NewCustomerAppState extends State<NewCustomerApp> {
+  late StreamSubscription _lifecycleSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _lifecycleSubscription = Stream.empty().listen((_) {});
+  }
+
+  @override
+  void dispose() {
+    _lifecycleSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ValueListenableBuilder<Box>(
+      valueListenable: widget.settings.listenable(
+        keys: [themeModeKey, appLanguageKey],
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      builder: (context, value, _) {
+        final ThemeMode themeMode = ThemeMode.values[value.get(
+          themeModeKey,
+          defaultValue: 1,
+        )];
+        final Locale locale =
+            Locale(value.get(appLanguageKey, defaultValue: 'en'));
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          locale: locale,
+          themeMode: themeMode,
+          theme: light_theme,
+          darkTheme: dark_theme,
+          routerConfig: goRouter,
+        );
+      },
     );
   }
 }

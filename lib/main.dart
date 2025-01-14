@@ -1,54 +1,49 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_displaymode/flutter_displaymode.dart';
+import 'package:get_it/get_it.dart';
+import 'package:hive/hive.dart';
 import 'package:newcustomerapp/src/my_app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'src/core/enum/box_types.dart';
+import 'src/service_locator.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  await GetIt.instance.allReady();
+  await setupLocator();
+  if (Platform.isAndroid) {
+    setOptimalDisplayMode();
   }
+  PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 300;
+  final Box<dynamic> settings =
+      locator.get<Box<dynamic>>(instanceName: BoxType.settings.name);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+  runApp(NewCustomerApp(
+    settings: settings,
+  ));
+}
+
+Future<void> setOptimalDisplayMode() async {
+  final List<DisplayMode> supported = await FlutterDisplayMode.supported;
+  final DisplayMode active = await FlutterDisplayMode.active;
+
+  final List<DisplayMode> sameResolution = supported
+      .where(
+        (DisplayMode m) => m.width == active.width && m.height == active.height,
+      )
+      .toList()
+    ..sort(
+      (DisplayMode a, DisplayMode b) => b.refreshRate.compareTo(a.refreshRate),
     );
-  }
+
+  final DisplayMode mostOptimalMode =
+      sameResolution.isNotEmpty ? sameResolution.first : active;
+
+  await FlutterDisplayMode.setPreferredMode(mostOptimalMode);
 }
