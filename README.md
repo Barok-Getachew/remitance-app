@@ -71,7 +71,12 @@ lib/
 
 ## 📱 Screenshots
 
-> *(Add your app screenshots here to showcase the UI)*
+![photo_2025-05-22_20-09-22 (3)](https://github.com/user-attachments/assets/2289dda6-15a6-4f1f-a3d4-87b90d5da950)
+![photo_2025-05-22_20-09-22 (2)](https://github.com/user-attachments/assets/b3147f84-09ce-4c71-a743-314098046c15)
+![photo_2025-05-22_20-09-22](https://github.com/user-attachments/assets/44648811-3877-4c7b-8507-64d551c6f0b1)
+
+
+
 
 ---
 
