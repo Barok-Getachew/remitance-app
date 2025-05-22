@@ -60,10 +60,11 @@ The app uses `Hive` for local data storage. Settings like `themeMode` and `biome
 lib/
 ├── app/                    # Global app configuration and controllers
 ├── core/                   # Enums, constants, utilities
+├── common/   
 ├── modules/
 │   ├── auth/               # Authentication-related logic
 │   └── transaction/        # Transaction-related logic and UI
-├── widgets/                # Shared UI widgets
+├── utils/                # Shared UI widgets
 └── main.dart               # App entry point
 ```
 
