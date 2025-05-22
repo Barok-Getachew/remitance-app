@@ -1,32 +1,32 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'package:get_it/get_it.dart';
-import 'package:hive/hive.dart';
-import 'package:newcustomerapp/src/my_app.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:remitance/src/app/page/my_app.dart';
 
-import 'src/core/enum/box_types.dart';
-import 'src/service_locator.dart';
+import 'src/app/controller/hivecontroller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  final hiveController = HiveController();
+  await hiveController.onInit(); // Wait for Hive boxes
+  Get.put<HiveController>(hiveController, permanent: true);
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await GetIt.instance.allReady();
-  await setupLocator();
+
   if (Platform.isAndroid) {
     setOptimalDisplayMode();
   }
-  PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 300;
-  final Box<dynamic> settings =
-      locator.get<Box<dynamic>>(instanceName: BoxType.settings.name);
 
-  runApp(NewCustomerApp(
-    settings: settings,
-  ));
+  PaintingBinding.instance.imageCache.maximumSizeBytes = 1024 * 1024 * 300;
+
+  runApp(TestApp(settings: hiveController.settingsBox));
 }
 
 Future<void> setOptimalDisplayMode() async {

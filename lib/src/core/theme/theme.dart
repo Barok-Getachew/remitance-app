@@ -1,206 +1,188 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final light_theme = ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme(
-      brightness: Brightness.light,
-      primary: Color.fromRGBO(67, 194, 89, 1), // Primary color for app
-      onPrimary: Colors.white, // Text color on primary
-      secondary: Color.fromRGBO(227, 165, 127, 100), // Secondary color
-      onSecondary: Colors.white, // Text color on secondary
-      error: Colors.red, // Error color
-      onInverseSurface: Color.fromRGBO(67, 194, 89, 1),
-      tertiary: Color.fromRGBO(250, 250, 250, 0.93),
-      onError: Colors.white,
-      surface: Color(0xFFEEEEEE),
-      surfaceContainer: const Color.fromARGB(85, 57, 52, 52),
-      onSurface: Colors.black,
+final purpleTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: ColorScheme(
+    brightness: Brightness.light,
+    primary: Color.fromRGBO(103, 80, 164, 1),
+    onPrimary: Colors.white,
+    secondary: Color.fromRGBO(156, 204, 101, 1),
+    onSecondary: Colors.black,
+    error: Color.fromRGBO(255, 105, 97, 1),
+    onError: Colors.white,
+    surface: Color(0xFFF3F0FF),
+    onSurface: Color.fromRGBO(30, 30, 30, 1),
+    tertiary: Color.fromRGBO(230, 222, 255, 1),
+    surfaceContainer: Color.fromRGBO(224, 224, 224, 0.8),
+    onInverseSurface: Color.fromRGBO(103, 80, 164, 1),
+  ),
+  textTheme: TextTheme(
+    headlineLarge: GoogleFonts.poppins(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(30, 30, 30, 1),
     ),
-    textTheme: TextTheme(
-      headlineLarge: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      headlineMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      headlineSmall: TextStyle(
-        fontSize: 10,
-        fontWeight: FontWeight.w400,
-        color: Colors.black,
-      ),
-
-      bodySmall: TextStyle(
-        fontSize: 8,
-        fontWeight: FontWeight.w300,
-        color: Colors.black,
-        overflow: TextOverflow.ellipsis,
-      ),
-      labelSmall: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-        color: const Color.fromARGB(43, 47, 47, 47),
-        overflow: TextOverflow.ellipsis,
-      ),
-      // Medium, bold, black text (used for body text)
-      bodyMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-        color: Colors.black,
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      // Small, bold, black text (used for display elements)
-      displayMedium: TextStyle(
-        fontSize: 10,
-        fontWeight: FontWeight.w700,
-        color: Colors.black,
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      labelLarge: TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: const Color.fromARGB(111, 0, 0, 0),
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      labelMedium: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w700,
-        color: const Color.fromARGB(184, 0, 0, 0),
-        overflow: TextOverflow.ellipsis,
-      ),
-
-      // Large, bold, white text (used for primary body elements)
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
+    headlineMedium: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Color.fromRGBO(30, 30, 30, 1),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(67, 194, 89, 1),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-      ),
+    headlineSmall: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(30, 30, 30, 1),
     ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        shape: const RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(10)), // Rounded corners
-        ),
-      ),
+    bodyLarge: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: Color.fromRGBO(30, 30, 30, 1),
     ),
-    fontFamily: GoogleFonts.poppins().fontFamily);
+    bodyMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: Color.fromRGBO(60, 60, 60, 1),
+    ),
+    bodySmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w300,
+      color: Color.fromRGBO(100, 100, 100, 1),
+    ),
+    labelLarge: GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(103, 80, 164, 1),
+    ),
+    labelMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: Color.fromRGBO(103, 80, 164, 1),
+    ),
+    labelSmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(156, 204, 101, 1),
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Color.fromRGBO(103, 80, 164, 1),
+      foregroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      foregroundColor: Color.fromRGBO(103, 80, 164, 1),
+      side: BorderSide(color: Color.fromRGBO(103, 80, 164, 1)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+    ),
+  ),
+  cardTheme: CardTheme(
+    elevation: 2,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
+    color: Colors.white,
+  ),
+  fontFamily: GoogleFonts.openSans().fontFamily,
+);
 
-final dark_theme = ThemeData(
-    useMaterial3: true,
-
-    // Define the color scheme for the light theme
-    colorScheme: ColorScheme(
-      brightness: Brightness.dark,
-      primary: Color.fromRGBO(80, 93, 104, 1.0), // Primary color for app
-      onPrimary: Colors.white, // Text color on primary
-      onInverseSurface: Color.fromRGBO(67, 194, 89, 1),
-      secondary: Color.fromRGBO(67, 194, 89, 1),
-      onSecondary: Colors.white,
-      error: Colors.red,
-      onError: Colors.white,
-      surface: Color.fromRGBO(31, 41, 55, 1),
-      tertiary: Color.fromRGBO(80, 93, 104, 1.0),
-      surfaceContainer: const Color.fromARGB(86, 145, 143, 143),
-      onSurface: Colors.white,
+final purpleDarkTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: ColorScheme(
+    brightness: Brightness.dark,
+    primary: Color.fromRGBO(179, 157, 219, 1),
+    onPrimary: Colors.black,
+    secondary: Color.fromRGBO(156, 204, 101, 1),
+    onSecondary: Colors.black,
+    error: Color.fromRGBO(255, 138, 128, 1),
+    onError: Colors.black,
+    surface: Color.fromRGBO(30, 30, 46, 1),
+    onSurface: Colors.white,
+    tertiary: Color.fromRGBO(56, 42, 93, 1),
+    surfaceContainer: Color.fromRGBO(56, 42, 93, 0.8),
+    onInverseSurface: Color.fromRGBO(179, 157, 219, 1),
+  ),
+  textTheme: TextTheme(
+    headlineLarge: GoogleFonts.poppins(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
     ),
-    textTheme: TextTheme(
-      headlineLarge: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis,
-      ),
-      headlineSmall: TextStyle(
-        fontSize: 10,
-        fontWeight: FontWeight.w400,
-        color: Colors.white,
-      ),
-      bodySmall: TextStyle(
-        fontSize: 8,
-        fontWeight: FontWeight.w300,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-        color: const Color.fromARGB(218, 255, 255, 255),
-        overflow: TextOverflow.ellipsis,
-      ),
-      labelSmall: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-        color: const Color.fromARGB(43, 255, 255, 255),
-        overflow: TextOverflow.ellipsis,
-      ),
-      displayMedium: TextStyle(
-        fontSize: 10,
-        fontWeight: FontWeight.w700,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis,
-      ),
-      labelLarge: TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-        overflow: TextOverflow.ellipsis,
-      ),
-      labelMedium: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w700,
-        color: const Color.fromARGB(184, 0, 0, 0),
-        overflow: TextOverflow.ellipsis,
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
+    headlineMedium: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
     ),
-
-    // Elevated button theme (primary button style)
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        backgroundColor:
-            Color.fromRGBO(67, 194, 89, 1), // Button background color
-        shape: const RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(10)), // Rounded corners
-        ),
-      ),
+    headlineSmall: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: Colors.white,
     ),
-    outlinedButtonTheme: OutlinedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        shape: const RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(10)), // Rounded corners
-        ),
-      ),
+    bodyLarge: GoogleFonts.poppins(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+      color: Colors.white,
     ),
-    fontFamily: GoogleFonts.poppins().fontFamily);
+    bodyMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+      color: Color.fromRGBO(220, 220, 220, 1),
+    ),
+    bodySmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w300,
+      color: Color.fromRGBO(200, 200, 200, 1),
+    ),
+    labelLarge: GoogleFonts.poppins(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(179, 157, 219, 1),
+    ),
+    labelMedium: GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: Color.fromRGBO(179, 157, 219, 1),
+    ),
+    labelSmall: GoogleFonts.poppins(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(156, 204, 101, 1),
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Color.fromRGBO(179, 157, 219, 1),
+      foregroundColor: Colors.black,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      foregroundColor: Color.fromRGBO(179, 157, 219, 1),
+      side: BorderSide(color: Color.fromRGBO(179, 157, 219, 1)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+    ),
+  ),
+  cardTheme: CardTheme(
+    elevation: 2,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
+    color: Color.fromRGBO(40, 40, 56, 1),
+  ),
+  fontFamily: GoogleFonts.openSans().fontFamily,
+);

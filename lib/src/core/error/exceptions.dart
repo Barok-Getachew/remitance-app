@@ -1,23 +1,19 @@
-class ServerException implements Exception {
+class UserAlreadyExistsException implements Exception {
   final String message;
-
-  const ServerException(this.message);
+  UserAlreadyExistsException([this.message = "User already exists"]);
 
   @override
-  String toString() {
-    return message;
-  }
+  String toString() => message;
 }
 
-class NetworkException implements Exception {
+class OneorMoreFieldIsInvalidException implements Exception {
   final String message;
-
-  const NetworkException(this.message);
+  OneorMoreFieldIsInvalidException(
+      [this.message =
+          "Invalid input detected. Check the fields and try again."]);
 
   @override
-  String toString() {
-    return message;
-  }
+  String toString() => message;
 }
 
 class CacheException implements Exception {
