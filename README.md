@@ -78,26 +78,10 @@ lib/
 
 
 
----
 
-## 🧪 Testing
-
-To run all tests:
-
-```bash
-flutter test
-```
-
----
-
-## 📃 License
-
-This project is licensed under the MIT License.
-
----
 
 ## 🙋‍♂️ Author
 
 Developed by **Biruk Getachew**  
-📧 [your.email@example.com]  
-🌐 [LinkedIn](https://www.linkedin.com/in/your-profile) | [GitHub](https://github.com/your-username)
+📧 [leoseven59@gmail.com]  
+🌐 [LinkedIn](https://www.linkedin.com/in/birukgetachew) | [GitHub](https://github.com/barok-getachew)
